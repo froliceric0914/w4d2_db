@@ -24,11 +24,15 @@ client.connect(err => {
       }
       console.log(`Found ${result.rows.length} person(s) named ${query}`);
       let resultStr = "";
+      //   console.log(result.rows);
       result.rows.forEach(
-        (obj, pos) =>
+        (obj, pos) => (
+          //   console.log(obj),
+          console.log(pos),
           (resultStr += `${pos + 1}. ${obj.first_name} ${obj.last_name}, born ${
             obj.birthdate
           }\n`)
+        )
       );
       console.log(resultStr);
       client.end();
